@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- <link href="{{ asset('css/style.css') }}" rel="stylesheet"> -->
+    <link href="asset/css/app.css" rel="stylesheet">
+    <link href="asset/css/style.css" rel="stylesheet">
 
     <!-- Styles -->
     <style>
@@ -73,16 +73,16 @@
 
 <body>
     <div class="flex-center position-ref full-height">
-        @if (Route::has('login'))
+        <!-- @if (Route::has('login')) -->
         <div class="top-right links">
-            @auth
-            <a href="{{ url('/home') }}">Dashboard</a>
-            @else
-            <a href="{{ route('login') }}">Login</a>
-            <a href="{{ route('register') }}">Register</a>
-            @endauth
+            <!-- @auth -->
+            <a href="index.html">Dashboard</a>
+            <!-- @else -->
+            <a href="views/login.html">Login</a>
+            <a href="views/register.html">Register</a>
+            <!-- @endauth -->
         </div>
-        @endif
+        <!-- @endif -->
 
         <div class="content" style="color:white">
             <div class="title m-b-md">
@@ -108,63 +108,60 @@
     </div>
     <div class="container">
         <div class="row">
-            @if($makanans->count()>0)
+            <!-- @if($makanans->count()>0) -->
             <div class="col-md-8 col-md-offset-2">
                 <center>
                     <h1>Makanan</h1>
                 </center>
             </div>
-            @endif @foreach($makanans as $makanan) @if($makanan->stok_menu>0)
+            <!-- @endif @foreach($makanans as $makanan) @if($makanan->stok_menu>0) -->
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>{{$makanan->nama_menu}}</h3>
+                        <h3>{{Nama Menu}}</h3>
                         <h6>by :
-                            <b>{{$user->getName($makanan->user_id)}}</b>
+                            <b>{{User}}</b>
                         </h6>
                         <h2>Rp.
-                            <b>{{$makanan->harga_menu}}</b>
+                            <b>{{Harga Menu}}</b>
                         </h2>
                     </div>
                     <div class="panel-body">
                         <b>
                         </b>
-                        {{$makanan->deskripsi_menu}}
+                        {{Deskripsi Menu}}
                     </div>
                     <div class="panel-footer" style="text-align:right">
-                        <b>{{$makanan->stok_menu}} tersisa &nbsp;</b>
+                        <b>{{Stok Mene}} tersisa &nbsp;</b>
                         <a href="{{route('pemesanan',$makanan->id)}}" class="btn btn-info">Pesan</a>
                     </div>
                 </div>
             </div>
-            @endif @endforeach
         </div>
         <div class="row">
-            @if($minumans->count()>0)
             <div class="col-md-8 col-md-offset-2">
                 <center>
                     <h1>Minuman</h1>
                 </center>
             </div>
-            @endif @foreach($minumans as $minuman) @if($minuman->stok_menu>0)
             <div class="col-md-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3>{{$minuman->nama_menu}}</h3>
+                        <h3>{{Nama Menu}}</h3>
                         <h6>by :
-                            <b>{{$user->getName($minuman->user_id)}}</b>
+                            <b>{{User)}}</b>
                         </h6>
                         <h2>Rp.
-                            <b>{{$minuman->harga_menu}}</b>
+                            <b>{{Harga Menu}}</b>
                         </h2>
                     </div>
                     <div class="panel-body">
                         <b>
                         </b>
-                        {{$minuman->deskripsi_menu}}
+                        {{Deskripsi Menu}}
                     </div>
                     <div class="panel-footer" style="text-align:right">
-                        <b>{{$minuman->stok_menu}} tersisa &nbsp;</b>
+                        <b>{{Stok Menu}} tersisa &nbsp;</b>
                         <a href="{{route('pemesanan',$minuman->id)}}" class="btn btn-info">Pesan</a>
                     </div>
                 </div>
